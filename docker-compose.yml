@@ -1,0 +1,14 @@
+version: '3'
+services:
+  python3:
+    restart: 'no'
+    build: .
+    container_name: 'python3_reddit_scraping'
+    working_dir: '/root/src'
+    tty: true
+    volumes:
+      - ./work:/root/src
+    ports: 
+      - '8082:8080'
+    command : jupyter-lab --ip 0.0.0.0 --port=8080 --allow-root --no-browser --NotebookApp.token=''
+    
